@@ -1,42 +1,61 @@
+/*Nome: Marcelo Augusto de Augusto de Barros Araújo.
+ * Curso: Engenharia da Computação.
+ * Professor: Waldemar.
+ * Disciplina: Algoritmo e Estrutura de Dados.
+ */
 package main;
 
-public class App {
+public class App 
+{
 
-    public static int encontre(int[] arrayOrdenado, int num) {
-        for (int i = 0; i < arrayOrdenado.length; i++) {
-            if (arrayOrdenado[i] == num) {
+    public static int encontre(int[] arrayOrdenado, int num) 
+    {
+        for (int i = 0; i < arrayOrdenado.length; i++) 
+        {
+            if (arrayOrdenado[i] == num) 
+            {
                 return 1;
             }
-            if (arrayOrdenado[i] > num) {
+            if (arrayOrdenado[i] > num) 
+            {
                 return 0;
             }
         }
         return 0;
     }
 
-    public static int maior(int[] arrayDesordenado) {
-        if (arrayDesordenado.length == 0) {
-            return -1; // Retorna -1 se o array estiver vazio.
+    public static int maior(int[] arrayDesordenado) 
+    {
+        if (arrayDesordenado.length == 0) 
+        {
+            return -1; // Retorna -1 caso não tenha elemento no array.
         }
 
         int max = arrayDesordenado[0];
-        for (int i = 1; i < arrayDesordenado.length; i++) {
-            if (arrayDesordenado[i] > max) {
+        for (int i = 1; i < arrayDesordenado.length; i++) 
+        {
+            if (arrayDesordenado[i] > max) 
+            {
                 max = arrayDesordenado[i];
             }
         }
 
         return max;
     }
-    public static Double parMaisProximo(Integer[][] pares) {
-        if (pares.length < 2) {
-            return null; // Retorna null se não houver pelo menos 2 pontos.
+
+    public static Double parMaisProximo(Integer[][] pares) 
+    {
+        if (pares.length < 2) 
+        {
+            return null; // Retorna nulo caso não tenha dois pontos no array.
         }
 
         double distanciaMinima = Double.MAX_VALUE;
 
-        for (int i = 0; i < pares.length; i++) {
-            for (int j = i + 1; j < pares.length; j++) {
+        for (int i = 0; i < pares.length; i++) 
+        {
+            for (int j = i + 1; j < pares.length; j++) 
+            {
                 int x1 = pares[i][0];
                 int y1 = pares[i][1];
                 int x2 = pares[j][0];
@@ -53,47 +72,65 @@ public class App {
         return distanciaMinima;
     }
 
-
-    public static void main(String[] args) {
-        // Exemplo de teste do método encontre
-        //teste1
-        int[] arrayOrdenado = {1, 2, 3, 4, 5};
+    public static void main(String[] args) 
+    {
+        // chamada do método encontre o valor solicitado no array ordenado
+        // teste01
+        int[] arrayOrdenado = { 1, 2, 3, 4, 5 };
         int valorProcurado = 3;
-        //teste2
-        //  int[] arrayOrdenado = {1, 2, 3};
+        // teste02
+        // int[] arrayOrdenado = {1, 2, 3};
         // int valorProcurado = 3;
-           //teste3
-        //  int[] arrayOrdenado = {1, 2, 3};
+        // teste03
+        // int[] arrayOrdenado = {1, 2, 3};
         // int valorProcurado = 7;
-           //teste4
-        //  int[] arrayOrdenado = {1, 2, 7, 3};
+        // teste04
+        // int[] arrayOrdenado = {1, 2, 7, 3};
         // int valorProcurado = 7;
-           //teste5
-        //  int[] arrayOrdenado = {};
+        // teste05
+        // int[] arrayOrdenado = {};
         // int valorProcurado = 7;
         int resultadoEncontre = encontre(arrayOrdenado, valorProcurado);
 
-        if (resultadoEncontre == 1) {
-            System.out.println("\n Valor encontrado na lista: " + valorProcurado);
+        if (resultadoEncontre == 1) 
+        {
+            System.out.println("Valor encontrado na lista => " + valorProcurado);
         } else {
-            System.out.println("\n Valor não encontrado na lista: ");
+            System.out.println("Valor não encontrado na lista. ");
         }
 
-        // método maior
-        int[] arrayDesordenado = {5, 2, 30, 4, 5};
+        // chamada do método maior número do array com números desordenados.
+        // teste01
+        int[] arrayDesordenado = { 1, 2, 3, 4, 5 };
+        // teste02
+        // int[] arrayDesordenado ={5, 2, 3, 4, 5};
+        // teste03
+        // int[] arrayDesordenado ={5, 2, 3, 4, 1};
+        // teste04
+        // int[] arrayDesordenado ={-5, -2, -3, -4, -1};
+        // teste05
+        // int[] arrayDesordenado ={-5};
         int resultadoMaior = maior(arrayDesordenado);
-        System.out.println("Maior número da lista: " + resultadoMaior);
+        System.out.println("Maior número da lista é => " + resultadoMaior);
 
-                // Teste do método parMaisProximo
-        Integer[][] pontos = {
-            {2, 4},
-            {5, 9},
-            {1, 3},
-            {8, 2},
-            {6, 7}
+        // chamada do método ponto mais próximo no vetor
+        Integer[][] pontos = 
+        {
+                // teste01
+                { 2, 4 },
+                { 5, 9 },
+                { 1, 3 },
+                { 8, 2 },
+                { 6, 7 }
+                // teste02
+                // {2, 4},
+                // {5, 9},
+                // {1, 3},
+                // {8, 2},
+                // {2, 4}
         };
         Double resultadoParMaisProximo = parMaisProximo(pontos);
-        System.out.println("Resultado do parMaisProximo: " + resultadoParMaisProximo);
+        System.out.printf("O ponto mais próximo é => %.3f%n", resultadoParMaisProximo);
+
     }
 }
-
