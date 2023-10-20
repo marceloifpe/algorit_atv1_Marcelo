@@ -63,7 +63,8 @@ public class App
 
                 double distancia = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 
-                if (distancia < distanciaMinima) {
+                if (distancia < distanciaMinima) 
+                {
                     distanciaMinima = distancia;
                 }
             }
